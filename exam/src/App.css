@@ -223,3 +223,9 @@
 }
 .blueiconcolor 
 {color:rgb(27, 180, 214);}
+
+.section{
+  width:100%;
+  background: rgb(255, 137, 137);
+  color:white
+}

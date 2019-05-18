@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import App1 from './App1'
-import App2 from './App2'
+import App1 from './components/App1'
+import App2 from './components/App2'
 import './App.css';
 
 
