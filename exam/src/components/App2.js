@@ -35,7 +35,7 @@ class App2 extends Component {
       }
     });
     let expectedData = Object.keys(carList).map(function (key, index) {
-      return <li key={index}>{key} : {carList[key].map(key => key + " : ")}</li>
+      return <li key={index}>{key} : {carList[key].map(key => key + " , ")}</li>
     });
     return expectedData;
   }
@@ -52,6 +52,9 @@ class App2 extends Component {
   }
 
   render() {
+    const contryInEurope = ['Italy','Germany','France','Romania','Netherlands','Sweden','Switzerland','Spain','Czech Republic','Austria','Serbia','Ukraine','Denmark']
+    let europeList = 0
+    let europeLength = 0
     let usaList = 0
     let usaLength = 0
     let carList = []
@@ -66,6 +69,12 @@ class App2 extends Component {
     usaList = getUSAData.map((item) => <li>{item.make_display}</li>)
     usaLength = getUSAData.length
     
+      const geteuropeCar = raw_data.filter((item)=>{
+          return contryInEurope.includes(item.make_country) 
+        })
+    europeList = geteuropeCar.map((item)=><li>{item.make_display}</li>)
+    europeLength = geteuropeCar.length
+    
     }
     return (
     <div>
@@ -78,6 +87,10 @@ class App2 extends Component {
 
       <div className="col-sm-12 col-form-label size-label section"> c. USA ผลิตรถกี่ยี่ห้อ ยี่ห้ออะไรบ้าง </div>
       <div className="col-sm-12 col-form-label size-label "> มี {usaLength} ยี่ห้อ {usaList} </div>
+
+
+      <div className="col-sm-12 col-form-label size-label section"> d. รถยุโรปมีกี่ยี่ห้อ ยี่ห้ออะไรบ้าง </div>
+      <div className="col-sm-12 col-form-label size-label "> มี {europeLength} ยี่ห้อ {europeList} </div>
 
 
     </div>);
